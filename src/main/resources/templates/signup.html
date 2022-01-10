@@ -13,9 +13,9 @@
             <div class="card shadow-2-strong" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center">
 
-                    <form action="#" th:action="@{/entry/add}" th:object="${passwordForm}" method="post">
+                    <form action="#" th:action="@{/newuser}" th:object="${passwordForm}" method="post">
 
-                        <h3 class="mb-3">Add New Entry</h3>
+                        <h3 class="mb-3">Create New Account</h3>
 
                         <div class="form-outline mb-4">
                             <input type="text" required placeholder="Username" th:field="*{username}" class="form-control form-control-lg"/>

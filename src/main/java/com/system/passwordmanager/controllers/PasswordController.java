@@ -16,31 +16,31 @@ public class PasswordController {
     @Autowired
     PasswordService passwordService;
 
-    @GetMapping("/home")
-    public String home(Model model) {
+    @GetMapping("/showdata")
+    public String showData(Model model) {
 
         List<Passwords> allPasswords = passwordService.getAllPasswords();
         model.addAttribute("passwords", allPasswords);
-        return "entry/home";
+        return "entry/showdata";
     }
 
-    @GetMapping("/create")
+    @RequestMapping("/create")
     public String create(Model model) {
-
         model.addAttribute("passwordForm", new Passwords());
         return "entry/create";
     }
 
     @PostMapping("/add")
     public String add(@ModelAttribute("passwordForm") Passwords password) {
+        System.out.println(password.getUsername());
         passwordService.addPassword(password);
-        return "redirect:/entry/home";
+        return "redirect:/entry/showdata";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
           passwordService.deletePasswordById(id);
-        return "redirect:/entry/home";
+        return "redirect:/entry/showdata";
     }
 
 }

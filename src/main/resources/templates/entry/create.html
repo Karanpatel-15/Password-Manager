@@ -1,20 +1,39 @@
-<!DOCTYPE HTML>
-    <html xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Password Entry</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    </head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
 
-    <body>
-        <div class="container" align="center">
-            <h1>Form</h1>
-            <form action="#" th:action="@{/entry/add}" th:object="${passwordForm}" method="post">
-                <h6>Username: <input type="text" th:field="*{username}"/></h6>
-                <h6>Password: <input type="text" th:field="*{password}"/></h6>
-                <button type="submit" class="btn btn-primary btn">Submit</button>
-            </form>
+<head>
+    <title>Password Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+
+                    <form action="#" th:action="@{/entry/add}" th:object="${passwordForm}" method="post">
+
+                        <h3 class="mb-3">Add New Entry</h3>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" required placeholder="Username" th:field="*{username}" class="form-control form-control-lg"/>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" required placeholder="Password" th:field="*{password}" class="form-control form-control-lg"/>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+</div>
 </html>

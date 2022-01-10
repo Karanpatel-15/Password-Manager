@@ -1,7 +1,6 @@
 package com.system.passwordmanager.services;
 
 import com.system.passwordmanager.models.Users;
-import com.system.passwordmanager.repository.PasswordRepository;
 import com.system.passwordmanager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +14,10 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     UserRepository userRepository;
+
+    public void addUser(Users user) {
+        userRepository.save(user);
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

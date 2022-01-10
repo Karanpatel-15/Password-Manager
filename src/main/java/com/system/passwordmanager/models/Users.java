@@ -9,11 +9,13 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
+@Table(name = "users")
 public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(unique = true)
     private String username;
     private String password;
 
@@ -28,14 +30,22 @@ public class Users implements UserDetails {
         return id;
     }
 
-    @Override
-    public String getPassword() {
-        return password;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
     }
 
     @Override

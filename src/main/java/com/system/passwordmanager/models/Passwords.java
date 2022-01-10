@@ -1,9 +1,6 @@
 package com.system.passwordmanager.models;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "passwords")
