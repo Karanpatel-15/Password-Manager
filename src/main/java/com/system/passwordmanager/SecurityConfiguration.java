@@ -28,15 +28,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/user").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/").permitAll()
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
+                .antMatchers("/masteruser/**").permitAll()
+                .antMatchers("/vault/**").authenticated()
                 .and()
                 .formLogin(form -> form
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/entry/showdata")
-                    .failureUrl("/login?error=true")
-                );
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/vault/showdata")
+                        .failureUrl("/login?error=true")
+                )
+                .logout().clearAuthentication(true)
+                .logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true);
     }
 
 
