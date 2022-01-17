@@ -1,5 +1,7 @@
 package com.system.passwordmanager.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,10 +11,15 @@ public class Vault {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    private long masterId;
+
+    private String website;
     private String username;
     private String password;
 
-    public Vault(String username, String password) {
+    public Vault(long masterID, String website, String username, String password) {
+        this.masterId = masterID;
+        this.website = website;
         this.username = username;
         this.password = password;
     }
@@ -23,6 +30,22 @@ public class Vault {
 
     public long getId() {
         return id;
+    }
+
+    public long getMasterId() {
+        return masterId;
+    }
+
+    public void setMasterId(long masterId) {
+        this.masterId = masterId;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public String getUsername() {

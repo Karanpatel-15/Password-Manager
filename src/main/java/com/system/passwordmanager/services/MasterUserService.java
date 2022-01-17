@@ -15,8 +15,8 @@ public class MasterUserService implements UserDetailsService {
     @Autowired
     MasterUserRepository masterUserRepository;
 
-    public void addMasterUser(MasterUser masterUser) {
-        masterUserRepository.save(masterUser);
+    public MasterUser addMasterUser(MasterUser masterUser) {
+        return masterUserRepository.save(masterUser);
     }
 
     @Override

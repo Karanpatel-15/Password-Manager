@@ -15,18 +15,30 @@ public class MasterUser implements UserDetails {
     private Long id;
 
     @Column(unique = true)
+    private String email;
+
+    @Column(unique = true)
     private String username;
     private String password;
 
     public MasterUser() {}
 
-    public MasterUser(String username, String password) {
+    public MasterUser(String username, String password, String email) {
+        this.email = email;
         this.username = username;
         this.password = password;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setUsername(String username) {

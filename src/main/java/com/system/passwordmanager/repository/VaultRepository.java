@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface VaultRepository extends JpaRepository<Vault, Long> {
 
-    List<Vault> findByUsername(String username);
+    List<Vault> findByMasterId(Long id);
 
 }

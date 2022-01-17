@@ -2,9 +2,11 @@ package com.system.passwordmanager.controllers;
 
 import com.system.passwordmanager.models.MasterUser;
 import com.system.passwordmanager.services.MasterUserService;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -23,7 +25,9 @@ public class MasterUserController {
 
     @PostMapping("/signup")
     public String newUser(@ModelAttribute("signupForm") MasterUser masterUser) {
-        System.out.println(masterUser.getUsername());
+//        if (masterUserService.addMasterUser(masterUser) == null){
+//            return "redirect:/masteruser/signup";
+//        }
         masterUserService.addMasterUser(masterUser);
         return "redirect:/login";
     }
