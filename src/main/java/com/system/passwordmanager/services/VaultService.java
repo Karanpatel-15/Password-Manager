@@ -5,7 +5,6 @@ import com.system.passwordmanager.models.Vault;
 import com.system.passwordmanager.repository.MasterUserRepository;
 import com.system.passwordmanager.repository.VaultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,15 +19,15 @@ public class VaultService {
     @Autowired
     MasterUserRepository masterUserRepository;
 
+    @Autowired
+    LoginService loginService;
 
     public List<Vault> getAllCredentials(){
-        MasterUser masterUser = (MasterUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        return vaultRepository.findByMasterId(masterUser.getId());
+        return vaultRepository.findByMasterId(loginService.getCurrentLoggedInUser().getId());
     }
 
     public void addCredential(Vault credential){
-        MasterUser masterUser = (MasterUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        MasterUser masterUser = loginService.getCurrentLoggedInUser();
         credential.setMasterId(masterUser.getId());
         vaultRepository.save(credential);
     }
@@ -51,4 +50,7 @@ public class VaultService {
         entity.setPassword(credential.getPassword());
         vaultRepository.save(entity);
     }
+
+
+
 }

@@ -8,4 +8,6 @@ public interface MasterUserRepository extends JpaRepository<MasterUser, Long> {
 
     MasterUser findByUsername(String username);
 
+    MasterUser findByEmail(String email);
+
 }

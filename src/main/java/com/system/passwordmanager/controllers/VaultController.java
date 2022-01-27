@@ -1,10 +1,9 @@
 package com.system.passwordmanager.controllers;
 
-import com.system.passwordmanager.models.MasterUser;
 import com.system.passwordmanager.models.Vault;
+import com.system.passwordmanager.services.LoginService;
 import com.system.passwordmanager.services.VaultService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +17,23 @@ public class VaultController {
     @Autowired
     VaultService vaultService;
 
+    @Autowired
+    LoginService loginService;
+
     @GetMapping("/showdata")
     public String showData(Model model) {
         List<Vault> allCredentials = vaultService.getAllCredentials();
         model.addAttribute("credentials", allCredentials);
-        model.addAttribute("masterUser", (MasterUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        model.addAttribute("masterUser", loginService.getCurrentLoggedInUser());
         return "vault/showdata";
+    }
+
+    @GetMapping("/account")
+    public String account(Model model) {
+        List<Vault> allCredentials = vaultService.getAllCredentials();
+        model.addAttribute("credentials", allCredentials);
+        model.addAttribute("masterUser", loginService.getCurrentLoggedInUser());
+        return "vault/account";
     }
 
     @GetMapping("/create")
