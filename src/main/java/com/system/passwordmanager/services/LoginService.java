@@ -11,8 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-    @Autowired
+    final
     MasterUserRepository masterUserRepository;
+
+    public LoginService(MasterUserRepository masterUserRepository) {
+        this.masterUserRepository = masterUserRepository;
+    }
 
     public MasterUser getCurrentLoggedInUser(){
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

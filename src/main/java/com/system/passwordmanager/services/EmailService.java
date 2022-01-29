@@ -14,11 +14,14 @@ import java.nio.charset.StandardCharsets;
 @Service
 public class EmailService{
 
-    @Autowired
-    private JavaMailSender emailSender;
+    private final JavaMailSender emailSender;
 
-    @Autowired
-    private SpringTemplateEngine templateEngine;
+    private final SpringTemplateEngine templateEngine;
+
+    public EmailService(JavaMailSender emailSender, SpringTemplateEngine templateEngine) {
+        this.emailSender = emailSender;
+        this.templateEngine = templateEngine;
+    }
 
     public void sendMail(AbstractEmailContext email) throws Exception {
         MimeMessage message = emailSender.createMimeMessage();

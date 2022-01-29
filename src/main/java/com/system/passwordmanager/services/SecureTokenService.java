@@ -1,9 +1,8 @@
 package com.system.passwordmanager.services;
 
-import com.system.passwordmanager.repository.SecureTokenRepository;
 import com.system.passwordmanager.models.SecureToken;
+import com.system.passwordmanager.repository.SecureTokenRepository;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.keygen.BytesKeyGenerator;
 import org.springframework.security.crypto.keygen.KeyGenerators;
@@ -21,8 +20,12 @@ public class SecureTokenService {
     @Value("${jdj.secure.token.validity}")
     private int tokenValidityInSeconds;
 
-    @Autowired
+    final
     SecureTokenRepository secureTokenRepository;
+
+    public SecureTokenService(SecureTokenRepository secureTokenRepository) {
+        this.secureTokenRepository = secureTokenRepository;
+    }
 
     public SecureToken createSecureToken(){
         String tokenValue = new String(Base64.encodeBase64URLSafe(DEFAULT_TOKEN_GENERATOR.generateKey()), US_ASCII); // this is a sample, you can adapt as per your security need

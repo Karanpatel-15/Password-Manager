@@ -3,7 +3,6 @@ package com.system.passwordmanager.controllers;
 import com.system.passwordmanager.models.Vault;
 import com.system.passwordmanager.services.LoginService;
 import com.system.passwordmanager.services.VaultService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,16 @@ import java.util.List;
 @RequestMapping("/vault")
 public class VaultController {
 
-    @Autowired
+    final
     VaultService vaultService;
 
-    @Autowired
+    final
     LoginService loginService;
+
+    public VaultController(VaultService vaultService, LoginService loginService) {
+        this.vaultService = vaultService;
+        this.loginService = loginService;
+    }
 
     @GetMapping("/showdata")
     public String showData(Model model) {
