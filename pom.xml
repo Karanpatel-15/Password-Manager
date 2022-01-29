@@ -16,6 +16,10 @@
 	<description>Password Manager project using Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<source>17</source>
+		<target>17</target>
+		<testSource>17</testSource>
+		<testTarget>17</testTarget>
 	</properties>
 	<dependencies>
 
