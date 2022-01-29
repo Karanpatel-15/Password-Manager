@@ -8,14 +8,17 @@ public class AccountVerificationEmailContext extends AbstractEmailContext {
 
     private String token;
 
+//    @Value("${email.fromAddress}")
+    private String fromAddress = "KPASS Admin<s332872431@gmail.com>";
+
     @Override
     public <T> void init(T context){
         MasterUser masterUser = (MasterUser) context;
         put("firstName", masterUser.getFirstName());
         setTemplateLocation("email/email-verification");
         setSubject("Complete your registration");
-        setFrom("s332872431@gmail.com");
-        setTo( masterUser.getEmail());
+        setFrom(fromAddress);
+        setTo(masterUser.getEmail());
     }
 
     public void setToken(String token) {
