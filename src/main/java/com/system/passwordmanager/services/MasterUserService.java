@@ -17,7 +17,7 @@ import org.thymeleaf.util.StringUtils;
 import java.util.Objects;
 
 
-@Service
+@Service("userDetailsService")
 public class MasterUserService implements UserDetailsService {
 
     @Autowired
