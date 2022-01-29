@@ -13,20 +13,14 @@ import java.util.Optional;
 @Service
 public class VaultService {
 
-    final
+    @Autowired
     VaultRepository vaultRepository;
 
-    final
+    @Autowired
     MasterUserRepository masterUserRepository;
 
-    final
+    @Autowired
     LoginService loginService;
-
-    public VaultService(VaultRepository vaultRepository, MasterUserRepository masterUserRepository, LoginService loginService) {
-        this.vaultRepository = vaultRepository;
-        this.masterUserRepository = masterUserRepository;
-        this.loginService = loginService;
-    }
 
     public List<Vault> getAllCredentials(){
         return vaultRepository.findByMasterId(loginService.getCurrentLoggedInUser().getId());

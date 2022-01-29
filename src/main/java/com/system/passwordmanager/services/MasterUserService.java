@@ -5,6 +5,7 @@ import com.system.passwordmanager.models.MasterUser;
 import com.system.passwordmanager.models.SecureToken;
 import com.system.passwordmanager.repository.MasterUserRepository;
 import com.system.passwordmanager.repository.SecureTokenRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.userdetails.User;
@@ -19,24 +20,20 @@ import java.util.Objects;
 @Service
 public class MasterUserService implements UserDetailsService {
 
-    final
+    @Autowired
     MasterUserRepository masterUserRepository;
 
-    private final SecureTokenService secureTokenService;
+    @Autowired
+    private SecureTokenService secureTokenService;
 
-    private final SecureTokenRepository secureTokenRepository;
+    @Autowired
+    private SecureTokenRepository secureTokenRepository;
 
-    private final EmailService emailService;
+    @Autowired
+    private EmailService emailService;
 
     @Value("${site.base.url.https}")
     private String baseURL;
-
-    public MasterUserService(MasterUserRepository masterUserRepository, SecureTokenService secureTokenService, SecureTokenRepository secureTokenRepository, EmailService emailService) {
-        this.masterUserRepository = masterUserRepository;
-        this.secureTokenService = secureTokenService;
-        this.secureTokenRepository = secureTokenRepository;
-        this.emailService = emailService;
-    }
 
     public MasterUser addMasterUser(MasterUser masterUser) throws DataIntegrityViolationException {
         MasterUser m = masterUserRepository.save(masterUser);

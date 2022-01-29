@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
+@Table(name = "masterUser")
 public class MasterUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
