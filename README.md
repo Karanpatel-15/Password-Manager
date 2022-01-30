@@ -1,6 +1,6 @@
 # Password Manager (Work In Progress)
 
-### [Online Available Link](https://kpass-password-manager.herokuapp.com/vault/account) 
+### [Online Available Link](https://kpass-password-manager.herokuapp.com/) 
 
 ### Login Page:
 ![](images/loginScreen.png)
