@@ -1,6 +1,6 @@
 document.write(
     "<section>" +
-    "<nav class=\"navbar navbar-dark\" style=\"background-color: #0F222D;\">\n" +
+    "<nav class=\"navbar navbar-dark\" style=\"background-color: #2A3C47;\">\n" +
     "\n" +
     "        <div class=\"container-fluid justify-content px-5\" >\n" +
     "            <a class=\"navbar-brand\" href=\"/\">\n" +

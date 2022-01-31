@@ -21,7 +21,7 @@
     <div class="container h-75">
         <div class="row d-flex justify-content-center align-items-center h-75">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card shadow-2-strong" style="border-radius: 1rem; background-color: #EBE7D9;">
+                <div class="card shadow-2-strong" style="border-radius: 1rem; background-color: #fefefe;">
                     <div class="card-body p-5 text-center">
                         <div tiles:fragment="content">
                             <form name="f" th:action="@{/login}" method="post">
@@ -31,6 +31,10 @@
 
                                 <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <strong>Invalid username and password</strong>
+                                </div>
+
+                                <div th:if="${verified eq true}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Verified Account</strong>
                                 </div>
 
                                 <div class="form-floating mb-4">
