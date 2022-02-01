@@ -8,17 +8,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         body {
-            background-color: #2A3C47;
-            /*background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);*/
+            background-color: #2a3c47;
+        }
+        h1 {
+            font-weight: bold;
+            color: #2A3C47;
+            font-size: 64px;
+        }
+        h2 {
+            color: #2A3C47;
+            font-size: 32px;
         }
     </style>
 </head>
 
 <body>
 
-<!--<script th:src="@{/js/vaultnav.js}"></script>-->
 <section>
-    <nav class="navbar navbar-dark" style="background-color: #0F222D;">
+    <nav class="navbar navbar-dark" style="background-color: #2a3c47;">
 
         <div class="container-fluid justify-content px-5" >
             <a class="navbar-brand">
@@ -27,62 +34,31 @@
 
             <form class="d-flex" name="f" th:action="@{/logout}" method="post">
                 <a href="/vault/showdata" class="btn btn-outline-light btn-lg m-1" role="button">Vault</a>
-                <a href="/vault/accountview" class="btn btn-outline-light btn-lg m-1" role="button">Account</a>
+                <a href="/vault/account" class="btn btn-outline-light btn-lg m-1" role="button">Account</a>
                 <button type="submit" class="btn btn-outline-light btn-lg m-1">Logout</button>
             </form>
         </div>
     </nav>
 </section>
-<section>
 
+<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> We're thrilled to have you here! Get ready to dive into your new account. </div>
+<table>
+    <!-- LOGO -->
+    <tr>
+        <td bgcolor="#2a3c47"  style="padding: 40px 10px 0px 10px;">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%" style="max-width: 75%;">
+                <tr>
+                    <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
 
-    <h1 align="center" class="mt-2 mb-2" style="color:#FFFFFF"; >
-        Welcome
-        <span th:text="${masterUser.getFirstName()}"></span>
-    </h1>
+                        <h1 align="center" class="mt-5 mb-4">Account</span></h1>
+                        <img src="/images/Lock.png" alt="" width="575" height="430">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
 
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-12 col-xl-10">
-                <div class="card shadow-2-strong" style="border-radius: 1rem; background-color: #EBE7D9;">
-                    <div class="card-body p-5 text-center">
+</table>
 
-                        <table class = "table" >
-                            <tr>
-                                <th>Website</th>
-                                <th>Username</th>
-                                <th>Password</th>
-                                <th>Change</th>
-                            </tr>
-
-                            <tr th:each="credential : ${credentials}">
-                                <td th:text="${credential.website}">Default</td>
-                                <td th:text="${credential.username}">Default</td>
-                                <td th:text="${credential.password}">Default</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <form action="#" th:action="@{'/vault/update/{id}'(id=${credential.id})}" method="get">
-                                            <button class="btn btn-outline-dark btn-sm m-1" type="submit"> Edit </button>
-                                        </form>
-
-                                        <form action="#" th:action="@{'/vault/delete/{id}'(id=${credential.id})}" method="post">
-                                            <button class="btn btn-outline-dark btn-sm m-1" type="submit"> Delete </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <form action="#" th:action="@{'/vault/create'}" method="get">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-dark btn btn-block">Add New Credentials</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
 </body>
 </html>
