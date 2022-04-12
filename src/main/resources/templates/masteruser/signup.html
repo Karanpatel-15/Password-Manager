@@ -1,4 +1,3 @@
-
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
 
 <head>
@@ -8,15 +7,36 @@
     <style>
         body {
             background-color: #2A3C47;
-            /*background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);*/
+            /*background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);*/
         }
     </style>
+
+    <link href="../css/style.css" rel="stylesheet">
+
 </head>
 
-
-<script th:src="@{/js/nav.js}"></script>
-
 <body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div class="logo">
+            <a href="/index.html"><img src="/images/Logo.png" alt="" class="img-fluid"></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link" href="/login">Login</a></li>
+                <li><a class="getstarted scrollto" href="/masteruser/signup">Get Started</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+<section>
 <div class="container py-5 h-75">
     <div class="row d-flex justify-content-center align-items-center h-75">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -77,5 +97,6 @@
         </div>
     </div>
 </div>
+</section>
 </body>
 </html>

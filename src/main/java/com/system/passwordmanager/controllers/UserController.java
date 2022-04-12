@@ -18,6 +18,11 @@ public class UserController {
         return ("index");
     }
 
+    @GetMapping("/index.html")
+    public String home() {
+        return ("index");
+    }
+
     @GetMapping("/user")
     public String user() {
         return ("user");
