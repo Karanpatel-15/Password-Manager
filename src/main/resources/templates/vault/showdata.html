@@ -13,6 +13,7 @@
       <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
       <link rel="icon" type="image/png" sizes="16x16" href="../images/Lock.png">
       <link href="../css/dashboard.min.css" rel="stylesheet">
+<!--      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
    </head>
@@ -57,12 +58,10 @@
                      </a>
                      <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                         <form class="d-flex" name="f" th:action="@{/vault/account}" method="get">
-                           <button type="submit" class="dropdown-item"><i class="ti-user m-r-5 m-l-5"></i>
-                              My Account</button>
+                           <button type="submit" class="dropdown-item"><i class="ti-user m-r-5 m-l-5"></i>My Account</button>
                         </form>
                         <form class="d-flex" name="f" th:action="@{/logout}" method="post">
-                           <button type="submit" class="dropdown-item"><i class="ti-email m-r-5 m-l-5"></i>
-                           Log Out</button>
+                           <button type="submit" class="dropdown-item"><i class="ti-email m-r-5 m-l-5"></i>Log Out</button>
                         </form>
                      </ul>
                   </li>
@@ -77,9 +76,11 @@
                   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                                href="account" aria-expanded="false"><i
                      class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
-                  <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                               href="showdata" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                     class="hide-menu">Passwords</span></a></li>
+                  <li class="sidebar-item">
+                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="showdata" aria-expanded="false">
+                        <i class="mdi mdi-border-all"></i><span class="hide-menu">Passwords</span>
+                     </a>
+                  </li>
                   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                      href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
                      class="hide-menu">404</span></a></li>
@@ -99,6 +100,13 @@
                   </nav>
                   <h1 class="mb-0 fw-bold">Your Passwords</h1>
                </div>
+               <div class="col-6">
+                  <form action="#" th:action="@{'/vault/create'}" method="get">
+                     <div class="text-end upgrade-btn">
+                        <button type="submit" class="btn btn-dark btn btn-block">Add New Credentials</button>
+                     </div>
+                  </form>
+               </div>
             </div>
          </div>
          <div class="container-fluid">
@@ -110,10 +118,10 @@
                            <table class="table">
                               <thead>
                                  <tr>
-                                    <th scope="col">Website</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Change</th>
+                                    <th scope="col" style="font-weight: bold; color: #0a0c1b">Website</th>
+                                    <th scope="col" style="font-weight: bold; color: #0a0c1b">Username</th>
+                                    <th scope="col" style="font-weight: bold; color: #0a0c1b">Password</th>
+                                    <th scope="col" style="font-weight: bold; color: #0a0c1b">Change</th>
                                  </tr>
                               </thead>
                               <tbody>
@@ -135,11 +143,6 @@
                                  </tr>
                               </tbody>
                            </table>
-                           <form action="#" th:action="@{'/vault/create'}" method="get">
-                              <div class="col-md-12 text-center">
-                                 <button type="submit" class="btn btn-dark btn btn-block">Add New Credentials</button>
-                              </div>
-                           </form>
                         </div>
                      </div>
                   </div>
@@ -148,8 +151,6 @@
             <footer class="footer text-center">
                All Rights Reserved by KPASS.
             </footer>
-         </div>
-      </div>
       <script src="../libs/jquery/dist/jquery.min.js"></script>
       <script src="../libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
       <script src="../js/app-style-switcher.js"></script>

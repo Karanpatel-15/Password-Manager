@@ -43,7 +43,7 @@ public class UserController {
     public String newUser(@ModelAttribute("passwordForm") Users user) {
         System.out.println(user.getUsername());
         userService.addUser(user);
-        return "redirect:/login";
+        return "redirect:/login?emailSent=true";
     }
 
 
