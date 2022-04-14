@@ -46,6 +46,4 @@ public class UserController {
         return "redirect:/login?emailSent=true";
     }
 
-
-
 }

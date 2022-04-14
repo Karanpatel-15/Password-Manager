@@ -43,7 +43,7 @@ public class MasterUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username)  {
-        MasterUser masterUser = masterUserRepository.findByUsername(username);
+        MasterUser masterUser = masterUserRepository.findByUsername(username.toLowerCase());
 
         boolean enabled = !masterUser.isEnabled();
         UserDetails user = User.withUsername(masterUser.getUsername())
