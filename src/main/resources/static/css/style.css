@@ -875,6 +875,13 @@ section {
 /*--------------------------------------------------------------
 # Contact Us
 --------------------------------------------------------------*/
+
+.contact .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .contact .info {
   border-top: 3px solid #eb5d1e;
   border-bottom: 3px solid #eb5d1e;
